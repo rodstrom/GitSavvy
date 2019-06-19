@@ -50,8 +50,8 @@ class GsGitlabMergeRequestCommand(WindowCommand, GitCommand, git_mixins.GitLabRe
                 "{number}: {title}".format(number=mr["iid"], title=mr["title"]),
                 "Merge request created by {user}, {time_stamp}.".format(
                     user=mr["author"]["username"],
-                    time_stamp=util.dates.fuzzy(mr["created_at"],
-                                                date_format="%Y-%m-%dT%H:%M:%S.%fZ")
+                    time_stamp=util.dates.fuzzy(mr["created_at"][:18],
+                                                date_format="%Y-%m-%dT%H:%M:%S")
                 )
             ],
             mr
